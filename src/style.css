@@ -39,7 +39,31 @@ body {
 
 .hero {
   padding: clamp(48px, 12vw, 120px) 0 clamp(40px, 8vw, 80px);
-  text-align: center;
+}
+
+.hero__inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(20px, 4vw, 48px);
+  max-width: 980px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.hero__photo {
+  width: clamp(140px, 22vw, 240px);
+  height: auto;
+  aspect-ratio: 1 / 1;
+  border-radius: 999px;
+  object-fit: cover;
+  border: 1px solid var(--border);
+  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.45);
+  flex: none;
+}
+
+.hero__content {
+  min-width: 0;
 }
 
 .hero__eyebrow {
@@ -61,10 +85,21 @@ body {
 }
 
 .hero__lede {
-  margin: 0 auto;
-  max-width: 42ch;
+  margin: 0;
+  max-width: 62ch;
   color: var(--muted);
   font-size: 1.05rem;
+}
+
+@media (max-width: 900px) {
+  .hero__inner {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero__lede {
+    margin: 0 auto;
+  }
 }
 
 .hero code,

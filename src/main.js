@@ -281,11 +281,16 @@ function projectCard(project, index) {
 function renderHero() {
   return `
     <header class="hero">
-      <p class="hero__eyebrow">Portfolio</p>
-      <h1 class="hero__title">Apps &amp; sites I’ve built</h1>
-      <p class="hero__lede">
-        Scroll down once through the list—each project appears a single time. Open any card for screenshots and the full write-up.
-      </p>
+      <div class="hero__inner">
+        <img class="hero__photo" src="/images/ME.jpg" alt="Robin" width="240" height="240" decoding="async" loading="eager" />
+        <div class="hero__content">
+          <p class="hero__eyebrow">Portfolio</p>
+          <h1 class="hero__title">Robin</h1>
+          <p class="hero__lede">
+            Robin is a full-stack developer based in New York City who builds things that probably shouldn't exist yet. His background isn't traditional — it's shaped by hands-on experience solving real problems across high-pressure environments and digital platforms, and that perspective drives everything: focus on what actually changes outcomes, not just what looks good on paper. Right now he's deep in indie apps and tools that improve how people interact with their world, physically and digitally.
+          </p>
+        </div>
+      </div>
     </header>
   `
 }
