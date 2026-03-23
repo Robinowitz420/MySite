@@ -117,6 +117,43 @@ function renderMagazineBody(project, chunks) {
     .join('')
 }
 
+function renderMultiSectionBody(sections) {
+  return sections.map((section, index) => {
+    const isReversed = index % 2 === 1
+    const images = [section.image, ...(section.detailImages || [])].filter(Boolean)
+    
+    const textContent = `
+      <div class="section-block__content">
+        <p class="section-block__tagline">${escapeHtml(section.tagline)}</p>
+        <h2 class="section-block__title">${escapeHtml(section.title)}</h2>
+        ${section.paragraphs.map(p => `<p class="section-block__p">${escapeHtml(p)}</p>`).join('')}
+        ${section.highlights?.length ? `
+          <div class="section-block__highlights">
+            ${section.highlights.map(h => `<span class="section-block__highlight">${escapeHtml(h)}</span>`).join('')}
+          </div>
+        ` : ''}
+        ${section.stack ? `<p class="section-block__stack"><strong>Stack:</strong> ${escapeHtml(section.stack)}</p>` : ''}
+      </div>
+    `
+    
+    const imagesContent = images.length > 0 ? `
+      <div class="section-block__images">
+        ${images.map((src, i) => `
+          <figure class="section-block__figure${i === 0 ? ' section-block__figure--hero' : ''}">
+            <img src="${escapeHtml(src)}" alt="${escapeHtml(section.title)}" loading="${i === 0 ? 'eager' : 'lazy'}" decoding="async" />
+          </figure>
+        `).join('')}
+      </div>
+    ` : ''
+    
+    return `
+      <section class="section-block${isReversed ? ' section-block--reversed' : ''}">
+        ${isReversed ? imagesContent + textContent : textContent + imagesContent}
+      </section>
+    `
+  }).join('')
+}
+
 function renderMagazineArticle(project) {
   const label = typeLabel(project.type)
   const tags =
@@ -130,8 +167,13 @@ function renderMagazineArticle(project) {
   const actionsHtml = actions
     ? `<div class="magazine__actions">${actions}</div>`
     : ''
-  const chunks = buildMagazineChunks(project)
-  const body = renderMagazineBody(project, chunks)
+  
+  // Check if project has sections for multi-section layout
+  const hasSections = project.sections && project.sections.length > 0
+  const body = hasSections 
+    ? renderMultiSectionBody(project.sections)
+    : renderMagazineBody(project, buildMagazineChunks(project))
+  
   const highlights = project.highlights?.length
     ? `<section class="magazine__section magazine__section--highlights" aria-labelledby="highlights-heading">
         <h2 id="highlights-heading" class="magazine__section-title">At a glance</h2>
@@ -146,7 +188,7 @@ function renderMagazineArticle(project) {
     : ''
 
   return `
-    <article class="magazine" data-id="${escapeHtml(project.id)}">
+    <article class="magazine${hasSections ? ' magazine--multi' : ''}" data-id="${escapeHtml(project.id)}">
       <header class="magazine__header">
         <span class="magazine__type">${label}</span>
         <p class="magazine__kicker">${escapeHtml(project.tagline)}</p>

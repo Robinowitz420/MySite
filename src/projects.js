@@ -56,10 +56,48 @@ export const projects = [
     subtitle:
       'Two sides of the same rental boutique: customer-facing club and staff tools, with a shared data model and a public API surface.',
     liveUrl: null,
-    paragraphs: [
-      'Change Your Outfit Change The World is a Next.js app for a rental closet: sign-in, onboarding, profile and taste preferences, search and discovery, referrals, and admin—wrapped in a playful sparkle-forward brand and copy that explains how the club actually works. It turns a nuanced offer into software members can use: tiers, swap-outs, trust, and fees are spelled out in FAQs and flows so the site sells and educates at the same time. The foundation is serious—auth, typed API routes, Prisma, Stripe-ready billing—so it can grow with the business.',
-      'Wardrobe Manager is the operational counterpart: staff dashboard for inventory and photos, scheduling, staff roles, referrals, and admin. Clerk protects the dashboard and most API routes; middleware leaves /api/public/* open so JSON handlers can serve catalog, availability, reservations, and alternatives without the same auth as staff. Firestore holds garments, staff, referrals, and schedule-related data; Firebase Storage handles uploads with URL handling you’d expect in production.',
-      'Together they form a complete rental ecosystem: members browse and join on the marketing site, while staff curate inventory and manage logistics in the backoffice. A deliberate public API layer means a separate customer-facing site can stay on any stack—it consumes the same Firestore data in real time.',
+    // Special multi-section layout for this combined project
+    sections: [
+      {
+        title: 'Change Your Outfit Change The World',
+        tagline: 'Membership clothing club, shipped as a full product',
+        paragraphs: [
+          'A Next.js app for a rental closet: sign-in, onboarding, profile and taste preferences, search and discovery, referrals, and admin—wrapped in a playful sparkle-forward brand and copy that explains how the club actually works.',
+          'It turns a nuanced offer into software members can use: tiers, swap-outs, trust, and fees are spelled out in FAQs and flows so the site sells and educates at the same time. The foundation is serious—auth, typed API routes, Prisma, Stripe-ready billing—so it can grow with the business.',
+        ],
+        highlights: [
+          'Onboarding and taste-driven discovery—vibe, color, era, garment type—so search feels closer to styling than filtering a spreadsheet.',
+          'Plain-language coverage of swap-outs, extras, and the trust-based model, so expectations are clear before someone joins.',
+          'Referrals, calendar-related flows, and admin for memberships and staff—signals operational thinking, not only visual design.',
+        ],
+        stack: 'Next.js (App Router), TypeScript, Prisma, Clerk, Stripe-ready billing, component-driven UI (e.g. Radix)—responsive, multi-route app structure.',
+        image: '/images/ChangeYourOutfitChangeTheWorld.jpg',
+        detailImages: [
+          '/images/ChangeYourOutfitChangeTheWorld2.jpg',
+          '/images/ChangeYourOutfitChangeTheWorld3.jpg',
+          '/images/ChangeYourOutfitChangeTheWorld4.jpg',
+        ],
+      },
+      {
+        title: 'Wardrobe Manager',
+        tagline: 'Backoffice + API for the same rental boutique ecosystem',
+        paragraphs: [
+          'An operational app for a clothing rental boutique: inventory and photos, scheduling, staff roles, referrals, and admin—not a thin CRUD sample, but workflows that match how rentals actually run.',
+          'Clerk protects the dashboard and most API routes; middleware leaves /api/public/* open so JSON handlers can serve catalog, availability, reservations, and alternatives without the same auth as staff. Firestore holds garments, staff, referrals, and schedule-related data; Firebase Storage handles uploads with URL handling you’d expect in production.',
+          'Together they form a complete rental ecosystem: members browse and join on the marketing site, while staff curate inventory and manage logistics in the backoffice. A deliberate public API layer means a separate customer-facing site can stay on any stack—it consumes the same Firestore data in real time.',
+        ],
+        highlights: [
+          'Split surface: staff-only routes (/dashboard/*, schedule, roles, admin) vs a deliberate public API layer for storefronts or static sites that need live inventory.',
+          'Referral attribution: links with ?ref= post to /api/referrals so visits from the sister site or campaigns map to staff codes in Firestore.',
+          'Single source of truth—curated availability and public fields in Firestore are what both the tools and the public APIs read, so you are not maintaining two unrelated inventories.',
+        ],
+        stack: 'Next.js App Router (many routes, API-heavy), Clerk middleware, Firestore modeling, Firebase Storage uploads—multi-role auth, protected APIs, and a public read/write surface by design.',
+        image: '/images/WarDrobeManager.jpg',
+        detailImages: [
+          '/images/WarDrobeManager2.jpg',
+          '/images/WarDrobeManager3.jpg',
+        ],
+      },
     ],
     highlights: [
       'Onboarding and taste-driven discovery—vibe, color, era, garment type—so search feels closer to styling than filtering a spreadsheet.',
