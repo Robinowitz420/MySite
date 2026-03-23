@@ -91,6 +91,33 @@ body {
   font-size: 1.05rem;
 }
 
+.hero__contact {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 1.5rem;
+}
+
+.hero__contact-link {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 14px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text);
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  text-decoration: none;
+  transition: border-color 0.2s, background 0.2s, color 0.2s;
+}
+
+.hero__contact-link:hover {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  color: var(--text-strong);
+}
+
 @media (max-width: 900px) {
   .hero__inner {
     flex-direction: column;
@@ -99,6 +126,10 @@ body {
 
   .hero__lede {
     margin: 0 auto;
+  }
+
+  .hero__contact {
+    justify-content: center;
   }
 }
 

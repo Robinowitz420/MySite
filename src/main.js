@@ -1,4 +1,4 @@
-import './style.css'
+ import './style.css'
 import { projects } from './projects.js'
 
 const app = document.querySelector('#app')
@@ -331,6 +331,11 @@ function renderHero() {
           <p class="hero__lede">
             Robin is a full-stack developer based in New York City who builds things that probably shouldn't exist yet. His background isn't traditional — it's shaped by hands-on experience solving real problems across high-pressure environments and digital platforms, and that perspective drives everything: focus on what actually changes outcomes, not just what looks good on paper. Right now he's deep in indie apps and tools that improve how people interact with their world, physically and digitally.
           </p>
+          <div class="hero__contact">
+            <a href="mailto:RobinRussellFrench@gmail.com" class="hero__contact-link">RobinRussellFrench@gmail.com</a>
+            <a href="tel:+13474581913" class="hero__contact-link">347 458 1913</a>
+            <a href="https://www.instagram.com/robin.russell.french/" target="_blank" rel="noreferrer" class="hero__contact-link">@robin.russell.french</a>
+          </div>
         </div>
       </div>
     </header>

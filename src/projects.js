@@ -12,7 +12,7 @@ export const projects = [
     summary:
       'Species-aware pet profiles, generated meals and plans, and compatibility scoring against nutrition rules—plus Clerk auth, Firebase Admin, and a profile UI refactored until mobile felt as solid as desktop.',
     subtitle: null,
-    liveUrl: 'https://www.pawsandplates.vercel.app',
+    liveUrl: 'https://paws-and-plates.vercel.app/',
     paragraphs: [
       'Paws & Plates is a full-stack web app for creating pet profiles (species-specific), generating and managing meals and meal plans, and comparing recipes against nutrition guardrails—with flows that work on desktop and mobile. It is not a single-entity CRUD demo: pets, recipes, portions, costs, compatibility scoring, personalization, and external commerce-style ingredient links all have to stay consistent.',
       'The stack is Next.js App Router with API routes for server-only work (generation, scoring, fetches), Clerk for auth, and Firebase Admin for secure server-side data. Environment separation (including NEXT_PUBLIC_* vs server secrets) is part of the product—misconfiguration shows up as confusing auth or storage errors, and the app is structured so those paths are debuggable.',
@@ -35,7 +35,7 @@ export const projects = [
       '/images/PawsAndPlates5.jpg',
     ],
     links: [
-      { label: 'Live site', href: 'https://www.pawsandplates.vercel.app' },
+      { label: 'Live site', href: 'https://paws-and-plates.vercel.app/' },
       { label: 'Source', href: '#' },
     ],
     tags: [
@@ -55,7 +55,7 @@ export const projects = [
       'Member experience with onboarding, taste-led discovery, referrals, and admin—plus staff dashboard for inventory, scheduling, and public APIs so any storefront can consume live data.',
     subtitle:
       'Two sides of the same rental boutique: customer-facing club and staff tools, with a shared data model and a public API surface.',
-    liveUrl: null,
+    liveUrl: 'https://www.changeyouroutfitchangetheworld.com/',
     // Special multi-section layout for this combined project
     sections: [
       {
@@ -120,7 +120,7 @@ export const projects = [
       '/images/WarDrobeManager3.jpg',
     ],
     links: [
-      { label: 'Live site', href: '#' },
+      { label: 'Live site', href: 'https://www.changeyouroutfitchangetheworld.com/' },
       { label: 'Case study', href: '#' },
       { label: 'API docs', href: '#' },
     ],
